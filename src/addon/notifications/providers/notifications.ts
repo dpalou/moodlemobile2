@@ -351,10 +351,12 @@ export class AddonNotificationsProvider {
      */
     markAllNotificationsAsRead(): Promise<any> {
         const params = {
-            useridto: this.sitesProvider.getCurrentSiteUserId()
+            userid: this.sitesProvider.getCurrentSiteUserId(),
+            messageid: 0,
+            markallnotifications: 1
         };
 
-        return this.sitesProvider.getCurrentSite().write('core_message_mark_all_notifications_as_read', params);
+        return this.sitesProvider.getCurrentSite().write('theme_legend_custom_notifications', params);
     }
 
     /**
@@ -413,7 +415,7 @@ export class AddonNotificationsProvider {
      * @since 3.2
      */
     isMarkAllNotificationsAsReadEnabled(): boolean {
-        return this.sitesProvider.wsAvailableInCurrentSite('core_message_mark_all_notifications_as_read');
+        return this.sitesProvider.wsAvailableInCurrentSite('theme_legend_custom_notifications');
     }
 
     /**
