@@ -370,7 +370,15 @@ export class AddonNotificationsProvider {
     markNotificationRead(notificationId: number, siteId?: string): Promise<any> {
         return this.sitesProvider.getSite(siteId).then((site) => {
 
-            if (site.wsAvailable('core_message_mark_notification_read')) {
+            if (site.wsAvailable('theme_legend_custom_notifications')) {
+                const params = {
+                    messageid: notificationId,
+                    userid: site.getUserId(),
+                    markallnotifications: 0
+                };
+
+                return site.write('theme_legend_custom_notifications', params);
+            } else if (site.wsAvailable('core_message_mark_notification_read')) {
                 const params = {
                     notificationid: notificationId,
                     timeread: this.timeUtils.timestamp()
