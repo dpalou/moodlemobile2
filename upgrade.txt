@@ -1,6 +1,10 @@
 This files describes API changes in the Moodle Mobile app,
 information provided here is intended especially for developers.
 
+=== 3.8.1 ===
+
+- Some functions have been removed because they haven't been used for a long time and they were meant to be used by core only: CoreFilepoolProvider.fillMissingExtensionInFiles, CoreFilepoolProvider.treatExtensionInQueue.
+
 === 3.8.0 ===
 
 - CoreDomUtilsProvider.extractDownloadableFilesFromHtml and CoreDomUtilsProvider.extractDownloadableFilesFromHtmlAsFakeFileObjects have been deprecated. Please use CoreFilepoolProvider.extractDownloadableFilesFromHtml and CoreFilepoolProvider.extractDownloadableFilesFromHtmlAsFakeFileObjects. We had to move them to prevent a circular dependency.
