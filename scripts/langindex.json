@@ -1557,6 +1557,7 @@
   "core.errorsomedatanotdownloaded": "local_moodlemobileapp",
   "core.errorsync": "local_moodlemobileapp",
   "core.errorsyncblocked": "local_moodlemobileapp",
+  "core.errorurlschemeinvalidsite": "local_moodlemobileapp",
   "core.explanationdigitalminor": "moodle",
   "core.favourites": "moodle",
   "core.filename": "repository",
