@@ -680,6 +680,7 @@ export class CoreLoginHelperProvider {
         }
 
         if (site.isLoggedOut()) {
+            console.error('LoginHelper: Site is logged out, ask the user to reauthenticate.');
             this.eventsProvider.trigger(CoreEventsProvider.SESSION_EXPIRED, {
                 pageName: pageName,
                 params: params

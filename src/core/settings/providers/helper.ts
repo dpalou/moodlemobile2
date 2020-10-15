@@ -294,6 +294,7 @@ export class CoreSettingsHelper {
                 // Check if local_mobile was installed in Moodle.
                 subPromises.push(site.checkIfLocalMobileInstalledAndNotUsed().then(() => {
                     // Local mobile was added. Throw invalid session to force reconnect and create a new token.
+                    console.error('Local mobile has been added. Ask user to reauthenticate.');
                     this.eventsProvider.trigger(CoreEventsProvider.SESSION_EXPIRED, {}, siteId);
 
                     return Promise.reject(this.translate.instant('core.lostconnection'));

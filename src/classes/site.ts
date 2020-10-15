@@ -709,6 +709,11 @@ export class CoreSite {
                         });
                     }
 
+                    console.error(`Invalid token error when calling WS '${method}' with params: ` +  JSON.stringify(data));
+                    alert(`Invalid token error when calling WS '${method}' with params: ` +  JSON.stringify(data) +
+                        '.  User token length: ' + this.token.length);
+                    console.error('User token length: ' + this.token.length);
+
                     // Session expired, trigger event.
                     this.eventsProvider.trigger(CoreEventsProvider.SESSION_EXPIRED, {}, this.id);
                     // Change error message. Try to get data from cache, the event will handle the error.

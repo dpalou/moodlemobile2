@@ -1084,6 +1084,7 @@ export class CoreSitesProvider {
 
             if (site.isLoggedOut()) {
                 // Logged out, trigger session expired event and stop.
+                console.error('Load site: Site is logged out, ask the user to reauthenticate.');
                 this.eventsProvider.trigger(CoreEventsProvider.SESSION_EXPIRED, {
                     pageName: pageName,
                     params: params
@@ -1094,6 +1095,7 @@ export class CoreSitesProvider {
 
             // Check if local_mobile was installed to Moodle.
             return site.checkIfLocalMobileInstalledAndNotUsed().then(() => {
+                console.error('Load site: Local mobile was added, ask the user to reauthenticate.');
                 // Local mobile was added. Throw invalid session to force reconnect and create a new token.
                 this.eventsProvider.trigger(CoreEventsProvider.SESSION_EXPIRED, {
                     pageName: pageName,

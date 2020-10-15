@@ -30,7 +30,7 @@ import { makeSingleton } from '@singletons/core.singletons';
 @Injectable()
 export class CoreLoggerProvider {
     /** Whether the logging is enabled. */
-    enabled = true;
+    enabled = false;
 
     constructor() {
         // Nothing to do.
