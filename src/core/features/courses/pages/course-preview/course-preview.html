@@ -16,7 +16,7 @@
                 <img [src]="courseImageUrl" core-external-content alt=""/>
             </div>
         </div>
-        <div class="core-course-thumb-parallax-content">
+        <div class="core-course-thumb-parallax-content" *ngIf="course">
             <ion-item class="ion-text-wrap" (click)="openCourse()" [title]="course.fullname" [attr.details]="!avoidOpenCourse && canAccessCourse">
                 <ion-icon name="fas-graduation-cap" fixed-width slot="start"></ion-icon>
                 <ion-label>
@@ -102,10 +102,10 @@
             </ion-item>
             <ion-item *ngIf="canAccessCourse && downloadCourseEnabled" (click)="prefetchCourse()" detail="false"
                     [attr.aria-label]="prefetchCourseData.statusTranslatable | translate">
-                <ion-icon *ngIf="!prefetchCourseData.status != statusDownloaded && !prefetchCourseData.loading"
+                <ion-icon *ngIf="(!prefetchCourseData.status != statusDownloaded) && !prefetchCourseData.loading"
                     [name]="prefetchCourseData.icon" slot="start">
                 </ion-icon>
-                <ion-icon *ngIf="prefetchCourseData.status == statusDownloaded && !prefetchCourseData.loading"
+                <ion-icon *ngIf="(prefetchCourseData.status == statusDownloaded) && !prefetchCourseData.loading"
                     slot="start" [name]="prefetchCourseData.icon" color="success"
                     [attr.aria-label]="prefetchCourseData.statusTranslatable | translate" role="status">
                 </ion-icon>
